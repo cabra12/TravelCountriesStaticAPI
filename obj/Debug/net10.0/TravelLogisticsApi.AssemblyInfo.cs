@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TravelLogisticsApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16d9d9b5cf1ad2f2e7f2ea7514a3f8e60fbc3153")]
 [assembly: System.Reflection.AssemblyProductAttribute("TravelLogisticsApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TravelLogisticsApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
