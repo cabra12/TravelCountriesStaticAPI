@@ -88,11 +88,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/charlotteabraham/Documents/c#/TravelCountriesAPI/TravelLogisticsApi/TravelLogisticsApi.csproj",
+      "projectUniqueName": "/Users/charlotteabraham/Documents/csharp/TravelCountriesAPI/TravelLogisticsApi/TravelLogisticsApi.csproj",
       "projectName": "TravelLogisticsApi",
-      "projectPath": "/Users/charlotteabraham/Documents/c#/TravelCountriesAPI/TravelLogisticsApi/TravelLogisticsApi.csproj",
+      "projectPath": "/Users/charlotteabraham/Documents/csharp/TravelCountriesAPI/TravelLogisticsApi/TravelLogisticsApi.csproj",
       "packagesPath": "/Users/charlotteabraham/.nuget/packages/",
-      "outputPath": "/Users/charlotteabraham/Documents/c#/TravelCountriesAPI/TravelLogisticsApi/obj/",
+      "outputPath": "/Users/charlotteabraham/Documents/csharp/TravelCountriesAPI/TravelLogisticsApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/charlotteabraham/.nuget/NuGet/NuGet.Config"
