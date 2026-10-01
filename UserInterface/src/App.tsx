@@ -27,7 +27,7 @@ function App() {
     try {
       window.history.pushState({}, "", `/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
       
-      const response = await fetch(`http://localhost:5048/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
+      const response = await fetch(`https://travel-logistics-api-gzh7chc3gvg4eye8.northcentralus-01.azurewebsites.net/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
       const data = await response.json() as RouteResponse;
       
       if (!response.ok) {
