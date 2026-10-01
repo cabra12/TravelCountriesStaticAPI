@@ -9,6 +9,10 @@ interface RouteResponse {
   message?: string; 
 }
 
+const API_BASE_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5173'
+  : 'https://travel-logistics-api-gzh7chc3gvg4eye8.northcentralus-01.azurewebsites.net';
+
 function App() {
   const initialDestination = window.location.pathname.replace("/", "").toUpperCase();
 
@@ -27,7 +31,7 @@ function App() {
     try {
       window.history.pushState({}, "", `/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
       
-      const response = await fetch(`http://localhost:5048/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
+      const response = await fetch(`${API_BASE_URL}/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
       const data = await response.json() as RouteResponse;
       
       if (!response.ok) {
