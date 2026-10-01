@@ -20,14 +20,14 @@ function App() {
   const fetchRoute = async (targetDestination: string) => {
     if (!targetDestination.trim() || !start.trim()) {
       setError("Start and destination are required.");
-      setRoute(null);
+      setRoute([]);
       return;
     }
 
     try {
       window.history.pushState({}, "", `/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
       
-      const response = await fetch(`http://localhost:5048/${targetDestination}?start=${start}`);
+      const response = await fetch(`http://localhost:5048/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
       const data = await response.json() as RouteResponse;
       
       if (!response.ok) {
@@ -59,8 +59,9 @@ function App() {
           <h2 className="title">Travel Logistics</h2>
 
           <div className="input-group">
-            <label>Start Country (3-Letter Code):</label>
+            <label htmlFor="start-input">Start Country (3-Letter Code):</label>
             <input 
+              id="start-input"
               type="text" 
               value={start} 
               onChange={(e) => setStart(e.target.value.toUpperCase())}
@@ -70,8 +71,9 @@ function App() {
           </div>
 
           <div className="input-group">
-            <label>Destination (3-Letter Code):</label>
+            <label htmlFor="destination-input">Destination (3-Letter Code):</label>
             <input 
+              id="destination-input"
               type="text" 
               value={destination} 
               onChange={(e) => setDestination(e.target.value.toUpperCase())}
@@ -85,7 +87,7 @@ function App() {
           </button>
 
           <div className="output-zone">
-            {Error && <span className="error-text">{error}</span>}
+            {error && <span className="error-text">{error}</span>}
             {route.length > 0 && <span>{route.join(" ➔ ")}</span>}
           </div>
         </div>
