@@ -40,6 +40,7 @@ describe('App Component - Travel Logistics', () => {
   });
 
   it('fetches and displays route successfully, and updates the URL', async () => {
+    const API_BASE_URL = 'http://localhost:5048';
     const mockResponse = { route: ['USA', 'MEX', 'GTM', 'HND', 'NIC', 'CRI', 'PAN'] };
     (globalThis.fetch as any).mockResolvedValueOnce({
       ok: true,
@@ -58,7 +59,7 @@ describe('App Component - Travel Logistics', () => {
         expect(screen.getByText('USA ➔ MEX ➔ GTM ➔ HND ➔ NIC ➔ CRI ➔ PAN')).toBeInTheDocument();
     });
     
-    expect(globalThis.fetch).toHaveBeenCalledWith('http://localhost:5173/PAN');
+    expect(globalThis.fetch).toHaveBeenCalledWith(`${API_BASE_URL}/PAN`);
     expect(window.history.pushState).toHaveBeenCalledWith({}, '', '/PAN');
   });
 
