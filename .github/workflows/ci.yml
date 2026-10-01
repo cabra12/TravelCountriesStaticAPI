@@ -1,0 +1,50 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, "feature/*" ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-backend:
+    name: Build & Test .NET Backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          
+      - name: Restore dependencies
+        run: dotnet restore TravelCountriesAPI.sln
+        
+      - name: Build Backend
+        run: dotnet build TravelCountriesAPI.sln --no-restore
+        
+      - name: Run Backend Tests
+        run: dotnet test TravelCountriesAPI.sln --no-build --verbosity normal
+
+  test-frontend:
+    name: Build & Test React Frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./UserInterface
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run Frontend Tests
+        run: npx vitest run
