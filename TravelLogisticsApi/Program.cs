@@ -1,3 +1,4 @@
+using Scalar.AspNetCore;
 using TravelLogisticsApi.Data;
 using TravelLogisticsApi.Services;
 
@@ -24,6 +25,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    app.MapScalarApiReference(); 
 }
 
 app.UseHttpsRedirection();

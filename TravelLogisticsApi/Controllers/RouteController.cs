@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TravelLogisticsApi.Models;
 using TravelLogisticsApi.Services;
 
 namespace TravelLogisticsApi.Controllers;
@@ -20,7 +21,7 @@ public class RouteController : ControllerBase
     {
         if (string.IsNullOrWhiteSpace(destination) || string.IsNullOrWhiteSpace(start))
         {
-            return BadRequest(new { message = "Start and destination parameters cannot be empty." });
+            return BadRequest(new { message = "Start and destination countries are required." });
         }
 
         var route = _routingService.GetPath(start, destination);
@@ -30,6 +31,7 @@ public class RouteController : ControllerBase
             return NotFound(new { message = $"No route found from {start} to {destination}" });
         }
 
-        return Ok(new { start = start, destination = destination, route = route });
+        var response = new RouteResponse(start, destination, route);
+        return Ok(response);
     }
 }

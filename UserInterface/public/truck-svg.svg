@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+  <!-- Truck Body -->
+  <path fill="#0078D4" d="M1 6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v10H1V6z"/>
+  <!-- Truck Cab -->
+  <path fill="#0078D4" d="M16 7h3.5l3.5 4v5h-7V7z"/>
+  <!-- Rear Wheel -->
+  <circle fill="#212529" cx="5.5" cy="17.5" r="2.5"/>
+  <!-- Front Wheel -->
+  <circle fill="#212529" cx="18.5" cy="17.5" r="2.5"/>
+</svg>
