@@ -18,6 +18,14 @@ public class RouteControllerTests
     }
 
     [Fact]
+    public void GetHome_ReturnsOk()
+    {
+        var result = _controller.GetHome();
+
+        Assert.IsType<OkObjectResult>(result);
+    }
+
+    [Fact]
     public void GetRoute_ValidDestination_ReturnsOk()
     {
         var result = _controller.GetRoute("USA", "BLZ");

@@ -9,9 +9,6 @@ interface RouteResponse {
   message?: string; 
 }
 const API_BASE_URL = import.meta.env.VITE_API_URL;
-// const API_BASE_URL = window.location.hostname === 'localhost' 
-//   ? 'http://localhost:5173'
-//   : 'https://travel-logistics-api-gzh7chc3gvg4eye8.northcentralus-01.azurewebsites.net';
 
 function App() {
   const initialDestination = window.location.pathname.replace("/", "").toUpperCase();

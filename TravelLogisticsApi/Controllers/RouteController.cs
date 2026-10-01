@@ -16,6 +16,18 @@ public class RouteController : ControllerBase
         _routingService = routingService;
     }
 
+    [HttpGet("")]
+    public IActionResult GetHome()
+    {
+        string name = "Travel Logistics API";
+        string usage = "GET /{countryCode}";
+        string instructions = "Use the following country codes. Starting country is the USA. Country codes: CAN, USA, MEX, BLZ, GTM, SLV, HND, NIC, CRI, PAN";
+        string example = "Get /PAN";
+
+        var response = new { name, usage, instructions, example };
+        return Ok(response);
+    }
+
     [HttpGet("{destination}")]
     public IActionResult GetRoute(string destination, [FromQuery] string start = "USA")
     {
