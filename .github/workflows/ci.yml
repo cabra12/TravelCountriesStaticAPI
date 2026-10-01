@@ -79,5 +79,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'travel-logistics-ui-gsc9exabbjhfgcg5'
-          publish-profile: ${{ secrets.AZURE_FRONTEND_PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: './UserInterface/dist'
