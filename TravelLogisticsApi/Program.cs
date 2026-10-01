@@ -9,7 +9,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
         policy => policy.WithOrigins("http://localhost:5173",
                                     "http://localhost:3000",
-                                    "https://travel-logistics-api-gzh7chc3gvg4eye8.northcentralus-01.azurewebsites.net")
+                                    "https://travel-logistics-ui-gsc9exabbjhfgcg5.northcentralus-01.azurewebsites.net")
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
