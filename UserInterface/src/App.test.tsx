@@ -58,7 +58,7 @@ describe('App Component - Travel Logistics', () => {
         expect(screen.getByText('USA ➔ MEX ➔ GTM ➔ HND ➔ NIC ➔ CRI ➔ PAN')).toBeInTheDocument();
     });
     
-    expect(globalThis.fetch).toHaveBeenCalledWith('http://localhost:5048/PAN');
+    expect(globalThis.fetch).toHaveBeenCalledWith('https://travel-logistics-api-gzh7chc3gvg4eye8.northcentralus-01.azurewebsites.net/PAN');
     expect(window.history.pushState).toHaveBeenCalledWith({}, '', '/PAN');
   });
 
