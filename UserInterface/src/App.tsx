@@ -17,6 +17,7 @@ function App() {
   const [destination, setDestination] = useState(initialDestination);
   const [route, setRoute] = useState<string[]>([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const fetchRoute = async (targetDestination: string) => {
     if (!targetDestination.trim() || !start.trim()) {
@@ -24,6 +25,8 @@ function App() {
       setRoute([]);
       return;
     }
+
+    setLoading(true);
 
     try {
       window.history.pushState({}, "", `/${targetDestination}${start === 'USA' ? '' : `?start=${start}`}`);
@@ -40,6 +43,8 @@ function App() {
       }
     } catch (err) {
       setError("Network error connecting to API.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -83,13 +88,18 @@ function App() {
             />
           </div>
 
-          <button onClick={handleFindRoute} className="submit-button">
+          <button onClick={handleFindRoute} className="submit-button" disabled={loading}>
             Find Route
           </button>
 
           <div className="output-zone">
-            {error && <span className="error-text">{error}</span>}
-            {route.length > 0 && <span>{route.join(" ➔ ")}</span>}
+            {loading ? (
+              <div className="spinner"></div>
+            ) : error ? (
+              <span className="error-text">{error}</span>
+            ) : (
+              route.length > 0 && <span>{route.join(" ➔ ")}</span>
+            )}
           </div>
         </div>
       </div>
